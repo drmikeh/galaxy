@@ -41,6 +41,8 @@ Thing.find({}).removeAsync()
 
 User.find({}).removeAsync()
   .then(function() {
+    console.log('finished removing users');
+/*
     User.createAsync({
       provider: 'local',
       name: 'Test User',
@@ -56,4 +58,6 @@ User.find({}).removeAsync()
     .then(function() {
       console.log('finished populating users');
     });
+*/
   });
+

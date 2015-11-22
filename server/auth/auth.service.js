@@ -6,6 +6,7 @@ import jwt from 'jsonwebtoken';
 import expressJwt from 'express-jwt';
 import compose from 'composable-middleware';
 import User from '../api/user/user.model';
+
 var validateJwt = expressJwt({
   secret: config.secrets.session
 });
@@ -66,7 +67,7 @@ function hasRole(roleRequired) {
  */
 function signToken(id, role) {
   return jwt.sign({ _id: id, role: role }, config.secrets.session, {
-    expiresInMinutes: 60 * 5
+    expiresIn: 60 * 60 * 5
   });
 }
 
@@ -77,7 +78,12 @@ function setTokenCookie(req, res) {
   if (!req.user) {
     return res.status(404).send('Something went wrong, please try again.');
   }
-  var token = signToken(req.user._id, req.user.role);
+
+  // TODO: investigate why the user is wrapped inside an array.
+  var user = req.user[0];
+  var id = user._id;
+  var role = user.role;
+  var token = signToken(id, role);
   res.cookie('token', token);
   res.redirect('/');
 }

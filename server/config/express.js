@@ -31,7 +31,6 @@ module.exports = function(app) {
   app.use(bodyParser.json());
   app.use(methodOverride());
   app.use(cookieParser());
-  app.use(passport.initialize());
 
   // Persist sessions with mongoStore / sequelizeStore
   // We need to enable sessions for passport-twitter because it's an
@@ -45,6 +44,9 @@ module.exports = function(app) {
       db: 'galaxy'
     })
   }));
+
+  app.use(passport.initialize());
+  app.use(passport.session());
 
   /**
    * Lusca - express server security
