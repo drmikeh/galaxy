@@ -7,6 +7,6 @@ angular.module('galaxyApp')
         url: '/',
         templateUrl: 'app/main/main.html',
         controller: 'MainController',
-        controllerAs: 'main'
+        controllerAs: 'ctrl'
       });
   });

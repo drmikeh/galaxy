@@ -3,11 +3,6 @@
 angular.module('galaxyApp')
   .config(function($stateProvider) {
     $stateProvider
-      .state('login', {
-        url: '/login',
-        templateUrl: 'app/account/login/login.html',
-        controller: 'LoginCtrl'
-      })
       .state('logout', {
         url: '/logout?referrer',
         referrer: 'main',
@@ -20,15 +15,11 @@ angular.module('galaxyApp')
           $state.go(referrer);
         }
       })
-      .state('signup', {
-        url: '/signup',
-        templateUrl: 'app/account/signup/signup.html',
-        controller: 'SignupCtrl'
-      })
       .state('settings', {
         url: '/settings',
         templateUrl: 'app/account/settings/settings.html',
         controller: 'SettingsCtrl',
+        controllerAs: 'ctrl',
         authenticate: true
       });
   })

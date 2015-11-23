@@ -1,13 +1,13 @@
 'use strict';
 
 angular.module('galaxyApp')
-  .controller('AdminCtrl', function($scope, $http, Auth, User) {
+  .controller('AdminCtrl', function($http, Auth, User) {
 
     // Use the User $resource to fetch all users
-    $scope.users = User.query();
+    this.users = User.query();
 
-    $scope.delete = function(user) {
+    this.delete = function(user) {
       User.remove({ id: user._id });
-      $scope.users.splice(this.$index, 1);
+      this.users.splice(this.$index, 1);
     };
   });

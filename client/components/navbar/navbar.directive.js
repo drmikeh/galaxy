@@ -5,6 +5,7 @@ angular.module('galaxyApp')
     return {
       templateUrl: 'components/navbar/navbar.html',
       restrict: 'E',
-      controller: 'NavbarCtrl'
+      controller: 'NavbarCtrl',
+      controllerAs: 'ctrl'
     };
   });

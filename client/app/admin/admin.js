@@ -6,6 +6,7 @@ angular.module('galaxyApp')
       .state('admin', {
         url: '/admin',
         templateUrl: 'app/admin/admin.html',
-        controller: 'AdminCtrl'
+        controller: 'AdminCtrl',
+        controllerAs: 'ctrl'
       });
   });
