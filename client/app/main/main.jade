@@ -1,15 +1,13 @@
-navbar
-
-header#banner.hero-unit(ng-hide='ctrl.isLoggedIn()')
+header#banner.hero-unit
   .container
-    h1 'Welcome to the GA-laxy!
-    p.lead Instructor / Student Interface
-    img(src='assets/images/yeoman.png', alt='I\'m Yeoman')
+    .row(ng-hide='ctrl.isLoggedIn()')
+      .col-lg-12
+        h1 'Welcome to the GA-laxy!
+        p.lead Instructor / Student Interface
+        h3 Please Login to Continue...
 
-.container
-  .row
-    .col-lg-12
-      h1(ng-hide='ctrl.isLoggedIn()') Please Login to Continue...
-      h1(ng-show='ctrl.isLoggedIn()') Awesome stuff goes here!
+    .row(ng-show='ctrl.isLoggedIn()')
+      .col-lg-12
+        h3(ng-show='ctrl.isLoggedIn()') Awesome stuff goes here!
 
 footer

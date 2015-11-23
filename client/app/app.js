@@ -4,6 +4,7 @@ angular.module('galaxyApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
+  'ngAnimate',
   'btford.socket-io',
   'ui.router',
   'ui.bootstrap',

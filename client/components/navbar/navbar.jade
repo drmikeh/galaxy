@@ -11,7 +11,7 @@ div.navbar.navbar-default.navbar-static-top
     div#navbar-main.navbar-collapse.collapse(collapse='ctrl.isCollapsed')
       ul.nav.navbar-nav
         li(ng-repeat='item in ctrl.menu', ui-sref-active='active')
-          a(ui-sref='{{ctrl.item.state}}') {{ctrl.item.title}}
+          a(ui-sref='{{item.state}}') {{item.title}}
 
         li(ng-show='ctrl.isAdmin()', ui-sref-active='active')
           a(ui-sref='admin') Admin
@@ -23,7 +23,9 @@ div.navbar.navbar-default.navbar-static-top
             |  Login
 
         li(ng-show='ctrl.isLoggedIn()')
-          p.navbar-text Hello {{ ctrl.getCurrentUser().name }}
+          p.navbar-text
+            span Hello
+            span(class='text-info') {{ ' ' + ctrl.getCurrentUser().name }}
 
         li(ng-show='ctrl.isLoggedIn()', ui-sref-active='active')
           a(ui-sref='settings')

@@ -1,16 +1,22 @@
 'use strict';
 (function() {
 
-function MainController($scope, $http, socket) {
+function MainController($scope, Auth, $http, socket, ) {
   var self = this;
-  this.awesomeThings = [];
+
+  self.isLoggedIn = Auth.isLoggedIn;
+  self.isAdmin = Auth.isAdmin;
+  self.getCurrentUser = Auth.getCurrentUser;
+
+  // TODO: REMOVE OLD CODE AND FIX UNIT TEST
+  self.awesomeThings = [];
 
   $http.get('/api/things').then(function(response) {
     self.awesomeThings = response.data;
     socket.syncUpdates('thing', self.awesomeThings);
   });
 
-  this.addThing = function() {
+  self.addThing = function() {
     if (self.newThing === '') {
       return;
     }
@@ -18,7 +24,7 @@ function MainController($scope, $http, socket) {
     self.newThing = '';
   };
 
-  this.deleteThing = function(thing) {
+  self.deleteThing = function(thing) {
     $http.delete('/api/things/' + thing._id);
   };
 
