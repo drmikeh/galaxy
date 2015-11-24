@@ -1,13 +1,50 @@
-header#banner.hero-unit
+header#banner.hero-unit(ng-hide='ctrl.isLoggedIn()')
   .container
-    .row(ng-hide='ctrl.isLoggedIn()')
-      .col-lg-12
-        h1 'Welcome to the GA-laxy!
+    .row
+      .col-lg-12.text-center
+        h1 'Welcome to WDI GAlaxy!
         p.lead Instructor / Student Interface
-        h3 Please Login to Continue...
+        h3 {{ 'Please ' }}
+          a.btn.btn-warning(ng-click='ctrl.loginOauth("github")')
+            i.fa.fa-github Login
+          | {{ ' to Continue...' }}
 
-    .row(ng-show='ctrl.isLoggedIn()')
-      .col-lg-12
-        h3(ng-show='ctrl.isLoggedIn()') Awesome stuff goes here!
+header#banner.hero2(ng-show='ctrl.isLoggedIn()')
+  .container
+    .row
+      .col-lg-12.text-center
+        h2 Instructor Dashboard for
+          span(class='text-success') {{ ' ' + ctrl.cohort.name }}
+        .row
+          .col-lg-6
+            .panel.panel-primary
+              .panel-heading
+                h3.panel-title Student Profiles
+              .panel-body
+                .btn-group-vertical.panel-buttons(role='group')
+                  button.btn.btn-lg.btn-info(ng-repeat="student in ctrl.cohort.students")
+                    | {{ student.name }}
+                    span.badge.text-right {{ student.age }}
+            .panel.panel-primary
+              .panel-heading
+                h3.panel-title Attendance
+              .panel-body
+                p Attendance goes here
+            .panel.panel-primary
+              .panel-heading
+                h3.panel-title Homework
+              .panel-body
+                p Homework stats go here
+          .col-lg-6
+            .panel.panel-primary
+              .panel-heading
+                h3.panel-title Quizzes
+              .panel-body
+                p Quiz Results go here
+            .panel.panel-primary
+              .panel-heading
+                h3.panel-title Projects
+              .panel-body
+                p Project links and comments go here
 
 footer

@@ -1,12 +1,31 @@
 'use strict';
 (function() {
 
-function MainController($scope, Auth, $http, socket, ) {
+function MainController($scope, Auth, $window, $http, socket) {
   var self = this;
 
   self.isLoggedIn = Auth.isLoggedIn;
   self.isAdmin = Auth.isAdmin;
   self.getCurrentUser = Auth.getCurrentUser;
+
+  // TODO: sample data
+  self.cohort = {
+    name: 'ATL WDI #5',
+    students: [
+      { name: 'Clark Kent', age: 27 },
+      { name: 'Bruce Wayne', age: 33 },
+      { name: 'Oliver Queen', age: 24 },
+      { name: 'Barbara Gordon', age: 22 },
+      { name: 'Barry Allen', age: 21 },
+      { name: 'Tony Stark', age: 21 },
+      { name: 'Elon Musk', age: 39 },
+      { name: 'Steve Jobs', age: 44 }
+    ]
+  };
+
+  self.loginOauth = function(provider) {
+    $window.location.href = '/auth/' + provider;
+  };
 
   // TODO: REMOVE OLD CODE AND FIX UNIT TEST
   self.awesomeThings = [];

@@ -40,6 +40,6 @@
 
 $animation-duration: 0.75s;
 [ui-view] {
-  @include animation(fadeInRight, $animation-duration,
-                     fadeOutLeft, $animation-duration);
+  @include animation(fadeIn, $animation-duration,
+                     fadeOut, $animation-duration);
 }

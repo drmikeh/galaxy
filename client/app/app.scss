@@ -3,8 +3,11 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
 
 $jumbotron-padding: 10px;
 
+@import "_variables.scss";
 @import "../bower_components/bootswatch-scss/slate/variables";
+
 $panel-primary-border: $brand-primary;
+
 @import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/variables";
 @import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap";
 @import "../bower_components/bootswatch-scss/slate/bootswatch";
@@ -29,6 +32,7 @@ $panel-primary-border: $brand-primary;
 
 // Component styles are injected through grunt
 // injector
+@import '_variables.scss';
 @import 'account/settings/settings.scss';
 @import 'admin/admin.scss';
 @import 'animate.scss';
