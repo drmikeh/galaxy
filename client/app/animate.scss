@@ -38,8 +38,7 @@
   position: relative;
 }
 
-$animation-duration: 0.75s;
 [ui-view] {
-  @include animation(fadeIn, $animation-duration,
-                     fadeOut, $animation-duration);
+  @include animation(fadeIn, 0.5s,
+                     fadeOut, 0.5s);
 }
