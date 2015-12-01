@@ -1,7 +1,7 @@
 header#banner.hero-unit(ng-hide='ctrl.isLoggedIn()')
-  .container
+  .container-fluid
     .row
-      .col-lg-12.text-center
+      .col-sm-12.text-center
         h1 'Welcome to WDI GAlaxy!
         p.lead Instructor / Student Interface
         h3 {{ 'Please ' }}
@@ -10,20 +10,20 @@ header#banner.hero-unit(ng-hide='ctrl.isLoggedIn()')
           | {{ ' to Continue...' }}
 
 header#banner.hero2(ng-show='ctrl.isLoggedIn()')
-  .container
+  .container-fluid
     .row
-      .col-lg-12.text-center
+      .col-sm-12.text-center
         h2 Instructor Dashboard for
           span(class='text-success') {{ ' ' + ctrl.cohort.name }}
         .row
-          .col-lg-3.text-center
+          .col-sm-3.text-center
             .btn-group-vertical.panel-buttons(role='group')
               a.btn.btn-lg.btn-info(ui-sref="main.students") Student Profiles
               a.btn.btn-lg.btn-info(ui-sref="main.attendance") Attendance
               a.btn.btn-lg.btn-info Homework
               a.btn.btn-lg.btn-info Quizzes
               a.btn.btn-lg.btn-info Projects
-          .col-lg-9
+          .col-sm-9
             .inner-view(ui-view='')
 
 footer

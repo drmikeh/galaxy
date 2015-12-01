@@ -39,6 +39,6 @@
 }
 
 [ui-view] {
-  @include animation(fadeIn, 0.5s,
-                     fadeOut, 0.5s);
+  @include animation(fadeIn, 0.35s,
+                     fadeOut, 0.35s);
 }
