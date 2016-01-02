@@ -7,7 +7,7 @@ describe('Service: cohortService', function () {
 
   // instantiate service
   var cohortService;
-  beforeEach(inject(function (_cohort_) {
+  beforeEach(inject(function (_cohortService_) {
     cohortService = _cohortService_;
   }));
 
